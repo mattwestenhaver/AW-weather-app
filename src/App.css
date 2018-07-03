@@ -74,6 +74,24 @@
   margin-left: 0;
 }
 
+.city-sidebar {
+  width: 25%;
+  float: left;
+  margin: 0 20px;
+  border-radius: 5px;
+  height: fit-content;
+  background-color: whitesmoke;
+  padding: 10px;
+}
+
+.state-header {
+  margin-top: 0;
+}
+
+.city-header {
+  margin-bottom: 0;
+}
+
 @media only screen and (max-width: 768px) {
   .container {
     padding-right: 15px;

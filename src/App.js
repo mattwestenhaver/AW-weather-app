@@ -40,26 +40,26 @@ class App extends Component {
         losAngeles: response.data
       })
     })
-    auth.getWeather(ids[1].value).then(response => {
-      this.setState({
-        manhattan: response.data
-      })
-    })
-    auth.getWeather(ids[2].value).then(response => {
-      this.setState({
-        chicago: response.data
-      })
-    })
-    auth.getWeather(ids[3].value).then(response => {
-      this.setState({
-        miami: response.data
-      })
-    })
-    auth.getWeather(ids[4].value).then(response => {
-      this.setState({
-        houston: response.data
-      })
-    })
+    // auth.getWeather(ids[1].value).then(response => {
+    //   this.setState({
+    //     manhattan: response.data
+    //   })
+    // })
+    // auth.getWeather(ids[2].value).then(response => {
+    //   this.setState({
+    //     chicago: response.data
+    //   })
+    // })
+    // auth.getWeather(ids[3].value).then(response => {
+    //   this.setState({
+    //     miami: response.data
+    //   })
+    // })
+    // auth.getWeather(ids[4].value).then(response => {
+    //   this.setState({
+    //     houston: response.data
+    //   })
+    // })
   }
 
   render() {
