@@ -17,7 +17,8 @@ class CityWeather extends React.Component {
     super(props)
     this.state = {
       city: props.city,
-      state: props.state
+      state: props.state,
+      icon: `http://openweathermap.org/img/w/${props.icon}.png`
     }
   }
 
@@ -25,23 +26,23 @@ class CityWeather extends React.Component {
     if(this.props.city === null) {
       if(this.props.location.pathname === '/losangeles') {
         auth.getWeather(ids[0].value).then(response => {
-          this.setState({ city: response.data, state: 'California'})
+          this.setState({ city: response.data, state: 'CA', icon: `http://openweathermap.org/img/w/${response.data.list[0].weather[0].icon}.png` })
         })
       } else if(this.props.location.pathname === '/manhattan') {
         auth.getWeather(ids[1].value).then(response => {
-          this.setState({ city: response.data, state: 'New York' })
+          this.setState({ city: response.data, state: 'NY', icon: `http://openweathermap.org/img/w/${response.data.list[0].weather[0].icon}.png` })
         })
       } else if(this.props.location.pathname === '/chicago') {
         auth.getWeather(ids[2].value).then(response => {
-          this.setState({ city: response.data, state: 'Illinois' })
+          this.setState({ city: response.data, state: 'IL', icon: `http://openweathermap.org/img/w/${response.data.list[0].weather[0].icon}.png` })
         })
       } else if(this.props.location.pathname === '/miami') {
         auth.getWeather(ids[3].value).then(response => {
-          this.setState({ city: response.data, state: 'Florida' })
+          this.setState({ city: response.data, state: 'FL', icon: `http://openweathermap.org/img/w/${response.data.list[0].weather[0].icon}.png` })
         })
       } else if(this.props.location.pathname === '/houston') {
         auth.getWeather(ids[4].value).then(response => {
-          this.setState({ city: response.data, state: 'Texas' })
+          this.setState({ city: response.data, state: 'TX', icon: `http://openweathermap.org/img/w/${response.data.list[0].weather[0].icon}.png` })
         })
       }
     }
@@ -51,19 +52,22 @@ class CityWeather extends React.Component {
     return (
       <div>
         <div className='city-sidebar'>
-          {/* {this.state.city
-            ? <img src={iconSource} alt='weather icon' />
+          {this.state.icon
+            ? <img src={this.state.icon} alt='weather icon' className='icon-sidebar' />
             : null
-          } */}
-          <h1 className='city-header'>{this.state.city ? this.state.city.city.name : null}</h1>
-          <h2 className='state-header'>{this.state.state ? this.state.state : null }</h2>
+          }
+          <h1 className='city-header'>{this.state.city ? this.state.city.city.name : null}, {this.state.state ? this.state.state : null }</h1><hr />
           {this.state.city
-            ? <div>
-                <h3>{Math.round(this.state.city.list[0].main.temp * 9/5 - 459.67) + '˚F and ' + this.state.city.list[0].weather[0].main}</h3>
-                <h3>High: {Math.round(this.state.city.list[0].main.temp_max * 9/5 - 459.67) + '˚F'}</h3>
-                <h3>Low: {Math.round(this.state.city.list[0].main.temp_min * 9/5 - 459.67) + '˚F'}</h3>
+            ? <div className='sidebar-weather'>
+                <h4>Currently:</h4>
+                <h2>{Math.round(this.state.city.list[0].main.temp * 9/5 - 459.67) + '˚F and ' + this.state.city.list[0].weather[0].main}</h2><hr />
+                <h3>High: {Math.round(this.state.city.list[0].main.temp_max * 9/5 - 459.67) + '˚F'}/Low: {Math.round(this.state.city.list[0].main.temp_min * 9/5 - 459.67) + '˚F'}</h3>
                 <h3>Humidity: {(this.state.city.list[0].main.humidity) + '%'}</h3>
                 <h3>Wind: {(this.state.city.list[0].wind.speed * 25/11).toFixed(2) + 'mph'}</h3>
+                {this.state.city.list[0].rain && this.state.city.list[0].rain['3h']
+                  ? <h3>Rain: {(this.state.city.list[0].rain['3h'] / 25.4).toFixed(2)} inches</h3>
+                  : <h3>No Rain</h3>
+                }
               </div>
             : null
           }

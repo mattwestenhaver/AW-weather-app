@@ -32,30 +32,20 @@ class App extends Component {
 
   componentDidMount() {
     auth.getWeather(ids[0].value).then(response => {
-      this.setState({
-        losAngeles: response.data
-      })
+      this.setState({ losAngeles: response.data })
     })
-    // auth.getWeather(ids[1].value).then(response => {
-    //   this.setState({
-    //     manhattan: response.data
-    //   })
-    // })
-    // auth.getWeather(ids[2].value).then(response => {
-    //   this.setState({
-    //     chicago: response.data
-    //   })
-    // })
-    // auth.getWeather(ids[3].value).then(response => {
-    //   this.setState({
-    //     miami: response.data
-    //   })
-    // })
-    // auth.getWeather(ids[4].value).then(response => {
-    //   this.setState({
-    //     houston: response.data
-    //   })
-    // })
+    auth.getWeather(ids[1].value).then(response => {
+      this.setState({ manhattan: response.data })
+    })
+    auth.getWeather(ids[2].value).then(response => {
+      this.setState({ chicago: response.data })
+    })
+    auth.getWeather(ids[3].value).then(response => {
+      this.setState({ miami: response.data })
+    })
+    auth.getWeather(ids[4].value).then(response => {
+      this.setState({ houston: response.data })
+    })
   }
 
   render() {
@@ -67,19 +57,19 @@ class App extends Component {
             return <Home losAngeles={this.state.losAngeles} manhattan={this.state.manhattan} chicago={this.state.chicago} miami={this.state.miami} houston={this.state.houston} {...props} />
           }} />
           <Route path='/losangeles' render={(props) => {
-            return <CityWeather city={this.state.losAngeles} state='California' {...props} />
+            return <CityWeather city={this.state.losAngeles} icon={this.state.losAngeles ? this.state.losAngeles.list[0].weather[0].icon : null} state='CA' {...props} />
           }} />
           <Route path='/manhattan' render={(props) => {
-            return <CityWeather city={this.state.manhattan} state='New York' {...props} />
+            return <CityWeather city={this.state.manhattan} icon={this.state.manhattan ? this.state.manhattan.list[0].weather[0].icon : null} state='NY' {...props} />
           }} />
           <Route path='/chicago' render={(props) => {
-            return <CityWeather city={this.state.chicago} state='Illinois' {...props} />
+            return <CityWeather city={this.state.chicago} icon={this.state.chicago ? this.state.chicago.list[0].weather[0].icon : null} state='IL' {...props} />
           }} />
           <Route path='/miami' render={(props) => {
-            return <CityWeather city={this.state.miami} state='Florida' {...props} />
+            return <CityWeather city={this.state.miami} icon={this.state.miami ? this.state.miami.list[0].weather[0].icon : null} state='FL' {...props} />
           }} />
           <Route path='/houston' render={(props) => {
-            return <CityWeather city={this.state.houston} state='Texas' {...props} />
+            return <CityWeather city={this.state.houston} icon={this.state.houston ? this.state.houston.list[0].weather[0].icon : null} state='TX' {...props} />
           }} />
         </div>
       </Router>

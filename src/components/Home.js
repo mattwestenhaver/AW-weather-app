@@ -3,6 +3,11 @@ import { Card, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 import source from '../images/blank.png'
+import laThumbnail from '../images/la.jpg'
+import manhattanThumbnail from '../images/manhattan.jpg'
+import chicagoThumbnail from '../images/chicago.jpg'
+import miamiThumbnail from '../images/miami.jpg'
+import houstonThumbnail from '../images/houston.jpg'
 
 class Home extends React.Component {
 
@@ -21,9 +26,9 @@ class Home extends React.Component {
         <Card.Group centered itemsPerRow={5}>
           <Card>
             <Card.Content>
-              <Card.Header>Los Angeles</Card.Header>
+              <Card.Header><Link to='/losangeles'>Los Angeles</Link></Card.Header>
             </Card.Content>
-            <Image src={source} />
+            <Image src={laThumbnail} />
             <Card.Content>
               <Card.Meta>Icon here</Card.Meta>
             </Card.Content>
@@ -38,9 +43,9 @@ class Home extends React.Component {
           </Card>
           <Card>
             <Card.Content>
-              <Card.Header>Manhattan</Card.Header>
+              <Card.Header><Link to='/manhattan'>Manhattan</Link></Card.Header>
             </Card.Content>
-            <Image src={source} />
+            <Image src={manhattanThumbnail} />
             <Card.Content>
               <Card.Meta>Icon here</Card.Meta>
             </Card.Content>
@@ -55,9 +60,9 @@ class Home extends React.Component {
           </Card>
           <Card>
             <Card.Content>
-              <Card.Header>Chicago</Card.Header>
+              <Card.Header><Link to='/chicago'>Chicago</Link></Card.Header>
             </Card.Content>
-            <Image src={source} />
+            <Image src={chicagoThumbnail} />
             <Card.Content>
               <Card.Meta>Icon here</Card.Meta>
             </Card.Content>
@@ -72,9 +77,9 @@ class Home extends React.Component {
           </Card>
           <Card>
             <Card.Content>
-              <Card.Header>Miami</Card.Header>
+              <Card.Header><Link to='/miami'>Miami</Link></Card.Header>
             </Card.Content>
-            <Image src={source} />
+            <Image src={miamiThumbnail} />
             <Card.Content>
               <Card.Meta>Icon here</Card.Meta>
             </Card.Content>
@@ -89,9 +94,9 @@ class Home extends React.Component {
           </Card>
           <Card>
             <Card.Content>
-              <Card.Header>Houston</Card.Header>
+              <Card.Header><Link to='/houston'>Houston</Link></Card.Header>
             </Card.Content>
-            <Image src={source} />
+            <Image src={houstonThumbnail} />
             <Card.Content>
               <Card.Meta>Icon here</Card.Meta>
             </Card.Content>

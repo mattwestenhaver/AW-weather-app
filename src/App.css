@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
+
 .App {
   text-align: center;
 }
@@ -14,6 +16,8 @@
 
 .navbar {
   margin-bottom: 30px;
+  font-family: 'Quicksand', sans-serif!important;
+  font-weight: 500;
 }
 
 .navbar-default {
@@ -75,31 +79,67 @@
 }
 
 .city-sidebar {
-  width: 25%;
+  width: 20%;
   float: left;
-  margin: 0 4%;
+  margin: 0 3%;
   border-radius: 5px;
   height: fit-content;
   background-color: whitesmoke;
   padding: 10px;
 }
 
-.state-header {
-  margin-top: 0;
+.city-sidebar hr {
+  border-top: 1px solid gray;
+}
+
+.icon-sidebar {
+  width: 100px;
 }
 
 .city-header {
+  margin-bottom: 2%;
+  margin-top: 0;
+}
+
+.sidebar-weather h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.sidebar-weather h2 {
+  margin-top: 0;
+}
+
+.sidebar-weather h4 {
   margin-bottom: 0;
 }
 
 .weather-widget {
-  width: 65%;
+  width: 72%;
   float: left;
   margin: 0;
   border-radius: 5px;
   height: fit-content;
-  background-color: lightblue;
+  background-color: rgb(99, 201, 214);
   padding: 10px;
+}
+
+.weather-widget hr {
+  border-top: 1px solid black;
+}
+
+.daily-container {
+  margin: 15px 0;
+}
+
+.daily-cards {
+  width: 13.2%;
+  margin: 0 0.5%;
+  float: left;
+}
+
+.daily-cards h4 {
+  margin-top: 0;
 }
 
 @media only screen and (max-width: 768px) {
