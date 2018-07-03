@@ -5,10 +5,12 @@ class WeatherWidget extends React.Component {
   constructor(props) {
     super(props)
   }
-  
+
   render() {
     return (
-      <h2>Weather Widget</h2>
+      <div className='weather-widget'>
+        <h2>Weather Widget</h2>
+      </div>
     )
   }
 }

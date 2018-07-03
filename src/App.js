@@ -6,11 +6,7 @@ import auth from './auth.js'
 
 import MenuBar from './components/MenuBar.js'
 import Home from './components/Home.js'
-import LosAngeles from './components/LosAngeles.js'
-import Manhattan from './components/Manhattan.js'
-import Chicago from './components/Chicago.js'
-import Miami from './components/Miami.js'
-import Houston from './components/Houston.js'
+import CityWeather from './components/CityWeather.js'
 
 
 const ids = [
@@ -71,19 +67,19 @@ class App extends Component {
             return <Home losAngeles={this.state.losAngeles} manhattan={this.state.manhattan} chicago={this.state.chicago} miami={this.state.miami} houston={this.state.houston} {...props} />
           }} />
           <Route path='/losangeles' render={(props) => {
-            return <LosAngeles losAngeles={this.state.losAngeles} {...props} />
+            return <CityWeather city={this.state.losAngeles} state='California' {...props} />
           }} />
           <Route path='/manhattan' render={(props) => {
-            return <Manhattan manhattan={this.state.manhattan} {...props} />
+            return <CityWeather city={this.state.manhattan} state='New York' {...props} />
           }} />
           <Route path='/chicago' render={(props) => {
-            return <Chicago chicago={this.state.chicago} {...props} />
+            return <CityWeather city={this.state.chicago} state='Illinois' {...props} />
           }} />
           <Route path='/miami' render={(props) => {
-            return <Miami miami={this.state.miami} {...props} />
+            return <CityWeather city={this.state.miami} state='Florida' {...props} />
           }} />
           <Route path='/houston' render={(props) => {
-            return <Houston houston={this.state.houston} {...props} />
+            return <CityWeather city={this.state.houston} state='Texas' {...props} />
           }} />
         </div>
       </Router>
