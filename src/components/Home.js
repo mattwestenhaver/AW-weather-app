@@ -1,56 +1,18 @@
 import React from 'react'
-import { Card, Image, Icon } from 'semantic-ui-react'
-import auth from '../auth.js'
+import { Card, Image } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 import source from '../images/blank.png'
 
-const ids = [
-  {key: 'losAngeles', value: 5368361},
-  {key: 'manhattan', value: 5125771},
-  {key: 'chicago', value: 4887398},
-  {key: 'miami', value: 4164138},
-  {key: 'houston', value: 4699066},
-]
-
 class Home extends React.Component {
 
-  constructor() {
-    super()
-    this.state = {
-      losAngeles: null,
-      manhattan: null,
-      chicago: null,
-      miami: null,
-      houston: null     
-    }
+  constructor(props) {
+    super(props)
+    this.state = {}
   }
 
   componentDidMount() {
-    auth.getWeather(ids[0].value).then(response => {
-      this.setState({
-        losAngeles: response.data
-      })
-    })
-    auth.getWeather(ids[1].value).then(response => {
-      this.setState({
-        manhattan: response.data
-      })
-    })
-    auth.getWeather(ids[2].value).then(response => {
-      this.setState({
-        chicago: response.data
-      })
-    })
-    auth.getWeather(ids[3].value).then(response => {
-      this.setState({
-        miami: response.data
-      })
-    })
-    auth.getWeather(ids[4].value).then(response => {
-      this.setState({
-        houston: response.data
-      })
-    })
+    
   }
 
   render() {
@@ -65,14 +27,14 @@ class Home extends React.Component {
             <Card.Content>
               <Card.Meta>Icon here</Card.Meta>
             </Card.Content>
-            <Card.Content extra>
-              <a>
-                {this.state.losAngeles
-                  ? Math.round(this.state.losAngeles.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.state.losAngeles.list[0].weather[0].main
-                  : null
-                }
-              </a>
-            </Card.Content>
+            {this.props.losAngeles
+              ? <Card.Content extra>
+                  <Link to='/losangeles'>
+                    {Math.round(this.props.losAngeles.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.losAngeles.list[0].weather[0].main}
+                  </Link>
+                </Card.Content>
+              : null
+            }  
           </Card>
           <Card>
             <Card.Content>
@@ -82,14 +44,14 @@ class Home extends React.Component {
             <Card.Content>
               <Card.Meta>Icon here</Card.Meta>
             </Card.Content>
-            <Card.Content extra>
-              <a>
-                {this.state.manhattan
-                  ? Math.round(this.state.manhattan.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.state.manhattan.list[0].weather[0].main
-                  : null
-                }
-              </a>
-            </Card.Content>
+            {this.props.manhattan
+              ? <Card.Content extra>
+                  <Link to='/manhattan'>
+                    {Math.round(this.props.manhattan.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.manhattan.list[0].weather[0].main}
+                  </Link>
+                </Card.Content>
+              : null
+            }
           </Card>
           <Card>
             <Card.Content>
@@ -99,14 +61,14 @@ class Home extends React.Component {
             <Card.Content>
               <Card.Meta>Icon here</Card.Meta>
             </Card.Content>
-            <Card.Content extra>
-              <a>
-                {this.state.chicago
-                  ? Math.round(this.state.chicago.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.state.chicago.list[0].weather[0].main
-                  : null
-                }
-              </a>
-            </Card.Content>
+            {this.props.chicago
+              ? <Card.Content extra>
+                  <Link to='/chicago'>
+                    {Math.round(this.props.chicago.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.chicago.list[0].weather[0].main}
+                  </Link>
+                </Card.Content>
+              : null
+            }
           </Card>
           <Card>
             <Card.Content>
@@ -116,14 +78,14 @@ class Home extends React.Component {
             <Card.Content>
               <Card.Meta>Icon here</Card.Meta>
             </Card.Content>
-            <Card.Content extra>
-              <a>
-                {this.state.miami
-                  ? Math.round(this.state.miami.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.state.miami.list[0].weather[0].main
-                  : null
-                }
-              </a>
-            </Card.Content>
+            {this.props.miami
+              ? <Card.Content extra>
+                  <Link to='/miami'>
+                    {Math.round(this.props.miami.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.miami.list[0].weather[0].main}
+                  </Link>
+                </Card.Content>
+              : null
+            }
           </Card>
           <Card>
             <Card.Content>
@@ -133,14 +95,14 @@ class Home extends React.Component {
             <Card.Content>
               <Card.Meta>Icon here</Card.Meta>
             </Card.Content>
-            <Card.Content extra>
-              <a>
-                {this.state.houston
-                  ? Math.round(this.state.houston.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.state.houston.list[0].weather[0].main
-                  : null
-                }
-              </a>
-            </Card.Content>
+            {this.props.houston
+              ? <Card.Content extra>
+                  <Link to='/houston'>
+                    {Math.round(this.props.houston.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.houston.list[0].weather[0].main}
+                  </Link>
+                </Card.Content>
+              : null
+            }
           </Card>
         </Card.Group>
       </div>
