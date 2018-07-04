@@ -96,10 +96,13 @@ body {
   width: 20%;
   float: left;
   margin: 0 3%;
-  border-radius: 5px;
+  border-radius: 4px;
   height: fit-content;
   background-color: whitesmoke;
   padding: 10px;
+  -webkit-box-shadow: 0px 10px 43px -7px rgba(0,0,0,0.46);
+  -moz-box-shadow: 0px 10px 43px -7px rgba(0,0,0,0.46);
+  box-shadow: 0px 10px 43px -7px rgba(0,0,0,0.46);
 }
 
 .city-sidebar>h1,h2,h3,h4 {
@@ -143,14 +146,17 @@ body {
   width: 72%;
   float: left;
   margin: 0 0 20px 0;
-  border-radius: 5px;
+  border-radius: 4px;
   height: fit-content;
-  background-color: rgb(99, 201, 214);
+  background-color: rgba(50, 75, 109, 0.9);
   padding: 10px;
+  -webkit-box-shadow: 0px 10px 43px -7px rgba(0,0,0,0.46);
+  -moz-box-shadow: 0px 10px 43px -7px rgba(0,0,0,0.46);
+  box-shadow: 0px 10px 43px -7px rgba(0,0,0,0.46);
 }
 
 .weather-widget hr {
-  border-top: 1px solid black;
+  border-top: 1px solid gray;
 }
 
 .daily-container {
@@ -161,13 +167,15 @@ body {
   width: 23%;
   margin: 1%;
   float: left;
-  background-color: aliceblue;
-  border-radius: 5px;
+  background-color: whitesmoke;
+  border: 1px solid gray;
+  border-radius: 4px;
   padding: 5px;
 }
 
 .daily-cards hr {
   margin: 5%;
+  border-top: 1px solid black;
 }
 
 .daily-cards h3 {
