@@ -11,7 +11,7 @@ class NextDay extends React.Component {
 
   render() {
 
-    var weatherList = this.props.weather ? this.props.weather.list.slice(1, 8) : null
+    var weatherList = this.props.weather ? this.props.weather.list.slice(1, 9) : null
 
     return(
       <div className='daily-container'>
@@ -23,7 +23,7 @@ class NextDay extends React.Component {
                     ? <h3>{(new Date(list.dt * 1000).getHours() - 12)  + ':00 PM'}</h3>
                     : <h3>{new Date(list.dt * 1000).getHours() + ':00 AM'}</h3>
                   }
-                  
+
                   {/* {this.props.weather.city.name === "Los Angeles"
                     ? (new Date(list.dt * 1000).getHours() - 3) > 11
                       ? <h3>{(new Date(list.dt * 1000).getHours() - 15)  + ':00 PM'}</h3>
@@ -49,7 +49,7 @@ class NextDay extends React.Component {
                   <h4>Low: {Math.round(list.main.temp_min * 9/5 - 459.67) + '˚F'}</h4>
                   <h4>Humidity: {(list.main.humidity) + '%'}</h4>
                   {list.rain && list.rain['3h']
-                    ? <h4>Rain: {(list.rain['3h'] / 25.4).toFixed(2)} inches</h4>
+                    ? <h4>Rain: {(list.rain['3h'] / 25.4).toFixed(2)} in.</h4>
                     : <h4>No Rain</h4>
                   }
                 </div>

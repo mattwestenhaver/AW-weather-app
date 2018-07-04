@@ -1,11 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
 
+body {
+  background-image: linear-gradient(rgba(218, 218, 218, 0.5), rgba(216, 216, 216, 0.5)), url("images/clouds.jpg");
+  height: 100%;
+}
+
 .App {
   text-align: center;
 }
 
 .ui.five.cards>.card {
   width: calc(19% - 1.5em);
+  color: black;
+}
+
+.ui.one.cards>.card {
+  width: 90%;
 }
 
 .ui.menu {
@@ -21,7 +31,7 @@
 }
 
 .navbar-default {
-  background-color: rgb(8, 108, 201);
+  background-color: black;
   border: 0;
   border-radius: 0;
 }
@@ -30,9 +40,13 @@
   color: whitesmoke;
 }
 
+.navbar-default .navbar-nav>li>a:hover {
+  color: rgb(134, 134, 134);
+}
+
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
   color: whitesmoke;
-  background-color: rgb(18, 99, 175);
+  background-color: rgb(66, 66, 66);
 }
 
 .navbar-default {
@@ -88,12 +102,22 @@
   padding: 10px;
 }
 
+.city-sidebar>h1,h2,h3,h4 {
+  font-family: 'Quicksand', sans-serif;
+}
+
 .city-sidebar hr {
   border-top: 1px solid gray;
 }
 
 .icon-sidebar {
-  width: 100px;
+  width: 80px;
+}
+
+.sidebar-image {
+  width: 90%;
+  border-radius: 5px;
+  margin: 10px auto;
 }
 
 .city-header {
@@ -111,13 +135,14 @@
 }
 
 .sidebar-weather h4 {
+  margin-top: 0;
   margin-bottom: 0;
 }
 
 .weather-widget {
   width: 72%;
   float: left;
-  margin: 0;
+  margin: 0 0 20px 0;
   border-radius: 5px;
   height: fit-content;
   background-color: rgb(99, 201, 214);
@@ -133,9 +158,20 @@
 }
 
 .daily-cards {
-  width: 13.2%;
-  margin: 0 0.5%;
+  width: 23%;
+  margin: 1%;
   float: left;
+  background-color: aliceblue;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.daily-cards hr {
+  margin: 5%;
+}
+
+.daily-cards h3 {
+  margin: 2% 0;
 }
 
 .daily-cards h4 {
@@ -148,8 +184,37 @@
     padding-left: 15px;
   }
 
+  .ui.card>.content, .ui.cards>.card>.content {
+    font-size: 2em;
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
+
+  .ui.card>.image, .ui.cards>.card>.image {
+    padding: 0 10px 10px 10px;
+    border-radius: 20px;
+    background: white;
+  }
+
   .navbar-brand a {
     padding-left: 0;
     padding-right: 0;
   }
+
+  .city-sidebar {
+    width: 90%;
+    margin: 0 auto;
+    float: none;
+  }
+
+  .weather-widget {
+    width: 90%;
+    margin: 5%;
+  }
+
+  .daily-cards {
+    width: 45%;
+    margin: 2.5%;
+  }
+
 }

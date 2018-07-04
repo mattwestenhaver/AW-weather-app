@@ -1,7 +1,13 @@
 import React from 'react'
 import auth from '../auth.js'
+import { Image } from 'semantic-ui-react'
 
 import WeatherWidget from './WeatherWidget.js'
+import laThumbnail from '../images/la.jpg'
+import manhattanThumbnail from '../images/manhattan.jpg'
+import chicagoThumbnail from '../images/chicago.jpg'
+import miamiThumbnail from '../images/miami.jpg'
+import houstonThumbnail from '../images/houston.jpg'
 
 const ids = [
   {key: 'losAngeles', value: 5368361},
@@ -52,15 +58,21 @@ class CityWeather extends React.Component {
     return (
       <div>
         <div className='city-sidebar'>
-          {this.state.icon
-            ? <img src={this.state.icon} alt='weather icon' className='icon-sidebar' />
-            : null
-          }
+          {this.state.city && this.state.city.city.name === 'Los Angeles' ? <Image className='sidebar-image' src={laThumbnail} /> : null}
+          {this.state.city && this.state.city.city.name === 'Manhattan' ? <Image className='sidebar-image' src={manhattanThumbnail} /> : null}
+          {this.state.city && this.state.city.city.name === 'Chicago' ? <Image className='sidebar-image' src={chicagoThumbnail} /> : null}
+          {this.state.city && this.state.city.city.name === 'Miami' ? <Image className='sidebar-image' src={miamiThumbnail} /> : null}
+          {this.state.city && this.state.city.city.name === 'Houston' ? <Image className='sidebar-image' src={houstonThumbnail} /> : null}
           <h1 className='city-header'>{this.state.city ? this.state.city.city.name : null}, {this.state.state ? this.state.state : null }</h1><hr />
           {this.state.city
             ? <div className='sidebar-weather'>
+                {/* {this.state.icon
+                  ? <img src={this.state.icon} alt='weather icon' className='icon-sidebar' />
+                  : null
+                } */}
                 <h4>Currently:</h4>
-                <h2>{Math.round(this.state.city.list[0].main.temp * 9/5 - 459.67) + '˚F and ' + this.state.city.list[0].weather[0].main}</h2><hr />
+                <h2>{Math.round(this.state.city.list[0].main.temp * 9/5 - 459.67) + '˚F and ' + this.state.city.list[0].weather[0].main}</h2>
+                <hr />
                 <h3>High: {Math.round(this.state.city.list[0].main.temp_max * 9/5 - 459.67) + '˚F'}/Low: {Math.round(this.state.city.list[0].main.temp_min * 9/5 - 459.67) + '˚F'}</h3>
                 <h3>Humidity: {(this.state.city.list[0].main.humidity) + '%'}</h3>
                 <h3>Wind: {(this.state.city.list[0].wind.speed * 25/11).toFixed(2) + 'mph'}</h3>
