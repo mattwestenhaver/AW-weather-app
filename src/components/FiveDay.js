@@ -102,7 +102,7 @@ class FiveDay extends React.Component {
                 <h4>High: {Math.round((day_0.reduce((a, b) => { return a.main.temp_max > b.main.temp_max ? a : b }).main.temp_max) * 9/5 - 459.67) + '˚F'}</h4>
                 <h4>Low: {Math.round((day_0.reduce((a, b) => { return a.main.temp_min < b.main.temp_min ? a : b }).main.temp_min) * 9/5 - 459.67) + '˚F'}</h4>
                 {(day_0.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2) > 0.01 
-                  ? <h4>{(day_0.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2)} inches</h4>
+                  ? <h4>Rain: {(day_0.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2)} in.</h4>
                   : <h4>No Rain</h4>
                 }
               </div>
@@ -112,7 +112,7 @@ class FiveDay extends React.Component {
                 <h4>High: {Math.round((day_1.reduce((a, b) => { return a.main.temp_max > b.main.temp_max ? a : b }).main.temp_max) * 9/5 - 459.67) + '˚F'}</h4>
                 <h4>Low: {Math.round((day_1.reduce((a, b) => { return a.main.temp_min < b.main.temp_min ? a : b }).main.temp_min) * 9/5 - 459.67) + '˚F'}</h4>
                 {(day_1.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2) > 0.01 
-                  ? <h4>{(day_1.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2)} inches</h4>
+                  ? <h4>Rain: {(day_1.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2)} in.</h4>
                   : <h4>No Rain</h4>
                 }
               </div>
@@ -122,7 +122,7 @@ class FiveDay extends React.Component {
                 <h4>High: {Math.round((day_2.reduce((a, b) => { return a.main.temp_max > b.main.temp_max ? a : b }).main.temp_max) * 9/5 - 459.67) + '˚F'}</h4>
                 <h4>Low: {Math.round((day_2.reduce((a, b) => { return a.main.temp_min < b.main.temp_min ? a : b }).main.temp_min) * 9/5 - 459.67) + '˚F'}</h4>
                 {(day_2.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2) > 0.01 
-                  ? <h4>{(day_2.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2)} inches</h4>
+                  ? <h4>Rain: {(day_2.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2)} in.</h4>
                   : <h4>No Rain</h4>
                 }
               </div>
@@ -132,7 +132,7 @@ class FiveDay extends React.Component {
                 <h4>High: {Math.round((day_3.reduce((a, b) => { return a.main.temp_max > b.main.temp_max ? a : b }).main.temp_max) * 9/5 - 459.67) + '˚F'}</h4>
                 <h4>Low: {Math.round((day_3.reduce((a, b) => { return a.main.temp_min < b.main.temp_min ? a : b }).main.temp_min) * 9/5 - 459.67) + '˚F'}</h4>
                 {(day_3.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2) > 0.01 
-                  ? <h4>{(day_3.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2)} inches</h4>
+                  ? <h4>Rain: {(day_3.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2)} in.</h4>
                   : <h4>No Rain</h4>
                 }
               </div>
@@ -143,7 +143,7 @@ class FiveDay extends React.Component {
                     <h4>High: {Math.round((day_4.reduce((a, b) => { return a.main.temp_max > b.main.temp_max ? a : b }).main.temp_max) * 9/5 - 459.67) + '˚F'}</h4>
                     <h4>Low: {Math.round((day_4.reduce((a, b) => { return a.main.temp_min < b.main.temp_min ? a : b }).main.temp_min) * 9/5 - 459.67) + '˚F'}</h4>
                     {(day_4.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2) > 0.01 
-                      ? <h4>{(day_4.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2)} inches</h4>
+                      ? <h4>Rain: {(day_4.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2)} in.</h4>
                       : <h4>No Rain</h4>
                     }
                   </div>
