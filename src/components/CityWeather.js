@@ -76,7 +76,7 @@ class CityWeather extends React.Component {
                 <h3>High: {Math.round(this.state.city.list[0].main.temp_max * 9/5 - 459.67) + '˚F'}/Low: {Math.round(this.state.city.list[0].main.temp_min * 9/5 - 459.67) + '˚F'}</h3>
                 <h3>Humidity: {(this.state.city.list[0].main.humidity) + '%'}</h3>
                 <h3>Wind: {(this.state.city.list[0].wind.speed * 25/11).toFixed(2) + 'mph'}</h3>
-                {this.state.city.list[0].rain && this.state.city.list[0].rain['3h']
+                {this.state.city.list[0].rain && this.state.city.list[0].rain['3h'] && (this.state.city.list[0].rain['3h'] / 25.4).toFixed(2) >= 0.01
                   ? <h3>Rain: {(this.state.city.list[0].rain['3h'] / 25.4).toFixed(2)} inches</h3>
                   : <h3>No Rain</h3>
                 }

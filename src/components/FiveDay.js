@@ -149,7 +149,7 @@ class FiveDay extends React.Component {
                   </div>
                 : <div className='fiveDay-card'>
                     <h3>{weekdays[(new Date((day_3[0].dt * 1000)).getDay())+ 1]}</h3><hr />
-                    <h4>No forecast information is available yet. Check back in a couple hours!</h4>
+                    <h4>No forecast information is available yet. Check back in a couple hours for more updates!</h4>
                   </div>
               }
             </div>
