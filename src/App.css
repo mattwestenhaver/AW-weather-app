@@ -186,6 +186,12 @@ body {
   margin-top: 0;
 }
 
+.fiveDay-card {
+  width: 18%;
+  float: left;
+  margin: 1%;
+}
+
 @media only screen and (max-width: 768px) {
   .container {
     padding-right: 15px;
