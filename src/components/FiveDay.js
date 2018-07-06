@@ -1,5 +1,7 @@
 import React from 'react'
 
+const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
 class FiveDay extends React.Component {
 
   constructor(props) {
@@ -73,10 +75,10 @@ class FiveDay extends React.Component {
     this.setState({ day_0: zero, day_1: one, day_2: two, day_3: three, day_4: four })
   }
 
-  findMinTemp(array) {
-    array.reduce((a,b) => {
-      return a.main.temp_min < b.main.temp_min ? 'a' : 'b'
-    }, 1000)
+  getRain(array) {
+    array.reduce((acc,obj) => { 
+      return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc 
+    }, 0)
   }
 
   componentDidMount() {
@@ -88,27 +90,46 @@ class FiveDay extends React.Component {
   render() {
 
     const currentDay = this.state.currentDay
-    const day_0 = this.state.day_0
+    const { day_0, day_1, day_2, day_3, day_4 } = this.state
 
     return(
       <div>
         {this.state.day_0.length > 0
           ? <div>
               <div className='fiveDay-card'>
-                <h1>{Math.round((day_0.reduce((acc, obj) => { return acc + obj.main.temp; }, 0) / day_0.length) * 9/5 - 459.67) + '˚F'}</h1>
-                <h1>Low: {this.findMinTemp(day_0).bind(this)}</h1>
+                <h3>{weekdays[(new Date(day_0[0].dt * 1000).getDay())]}</h3><hr />
+                <h4>Average: {Math.round((day_0.reduce((acc, obj) => { return acc + obj.main.temp; }, 0) / day_0.length) * 9/5 - 459.67) + '˚F'}</h4>
+                <h4>High: {Math.round((day_0.reduce((a, b) => { return a.main.temp_max > b.main.temp_max ? a : b }).main.temp_max) * 9/5 - 459.67) + '˚F'}</h4>
+                <h4>Low: {Math.round((day_0.reduce((a, b) => { return a.main.temp_min < b.main.temp_min ? a : b }).main.temp_min) * 9/5 - 459.67) + '˚F'}</h4>
+                <h4>Rain: {(day_0.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2)} inches</h4>
               </div>
               <div className='fiveDay-card'>
-                <h1>{Math.round((this.state.day_1.reduce((acc, obj) => { return acc + obj.main.temp; }, 0) / this.state.day_1.length) * 9/5 - 459.67) + '˚F'}</h1>
+                <h3>{weekdays[(new Date(day_1[0].dt * 1000).getDay())]}</h3><hr />
+                <h4>Average: {Math.round((this.state.day_1.reduce((acc, obj) => { return acc + obj.main.temp; }, 0) / this.state.day_1.length) * 9/5 - 459.67) + '˚F'}</h4>
+                <h4>High: {Math.round((day_1.reduce((a, b) => { return a.main.temp_max > b.main.temp_max ? a : b }).main.temp_max) * 9/5 - 459.67) + '˚F'}</h4>
+                <h4>Low: {Math.round((day_1.reduce((a, b) => { return a.main.temp_min < b.main.temp_min ? a : b }).main.temp_min) * 9/5 - 459.67) + '˚F'}</h4>
+                <h4>Rain: {(day_1.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2)} inches</h4>
               </div>
               <div className='fiveDay-card'>
-                <h1>{Math.round((this.state.day_2.reduce((acc, obj) => { return acc + obj.main.temp; }, 0) / this.state.day_2.length) * 9/5 - 459.67) + '˚F'}</h1>
+                <h3>{weekdays[(new Date(day_2[0].dt * 1000).getDay())]}</h3><hr />
+                <h4>Average: {Math.round((this.state.day_2.reduce((acc, obj) => { return acc + obj.main.temp; }, 0) / this.state.day_2.length) * 9/5 - 459.67) + '˚F'}</h4>
+                <h4>High: {Math.round((day_2.reduce((a, b) => { return a.main.temp_max > b.main.temp_max ? a : b }).main.temp_max) * 9/5 - 459.67) + '˚F'}</h4>
+                <h4>Low: {Math.round((day_2.reduce((a, b) => { return a.main.temp_min < b.main.temp_min ? a : b }).main.temp_min) * 9/5 - 459.67) + '˚F'}</h4>
+                <h4>Rain: {(day_2.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2)} inches</h4>
               </div>
               <div className='fiveDay-card'>
-                <h1>{Math.round((this.state.day_3.reduce((acc, obj) => { return acc + obj.main.temp; }, 0) / this.state.day_3.length) * 9/5 - 459.67) + '˚F'}</h1>
+                <h3>{weekdays[(new Date(day_3[0].dt * 1000).getDay())]}</h3><hr />
+                <h4>Average: {Math.round((this.state.day_3.reduce((acc, obj) => { return acc + obj.main.temp; }, 0) / this.state.day_3.length) * 9/5 - 459.67) + '˚F'}</h4>
+                <h4>High: {Math.round((day_3.reduce((a, b) => { return a.main.temp_max > b.main.temp_max ? a : b }).main.temp_max) * 9/5 - 459.67) + '˚F'}</h4>
+                <h4>Low: {Math.round((day_3.reduce((a, b) => { return a.main.temp_min < b.main.temp_min ? a : b }).main.temp_min) * 9/5 - 459.67) + '˚F'}</h4>
+                <h4>Rain: {(day_3.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2)} inches</h4>
               </div>
               <div className='fiveDay-card'>
-                <h1>{Math.round((this.state.day_4.reduce((acc, obj) => { return acc + obj.main.temp; }, 0) / this.state.day_4.length) * 9/5 - 459.67) + '˚F'}</h1>
+                <h3>{weekdays[(new Date(day_4[0].dt * 1000).getDay())]}</h3><hr />
+                <h4>Average: {Math.round((this.state.day_4.reduce((acc, obj) => { return acc + obj.main.temp; }, 0) / this.state.day_4.length) * 9/5 - 459.67) + '˚F'}</h4>
+                <h4>High: {Math.round((day_4.reduce((a, b) => { return a.main.temp_max > b.main.temp_max ? a : b }).main.temp_max) * 9/5 - 459.67) + '˚F'}</h4>
+                <h4>Low: {Math.round((day_4.reduce((a, b) => { return a.main.temp_min < b.main.temp_min ? a : b }).main.temp_min) * 9/5 - 459.67) + '˚F'}</h4>
+                <h4>Rain: {(day_4.reduce((acc,obj) => { return obj.rain ? acc + (obj.rain['3h'] ? obj.rain['3h'] : 0) : acc }, 0) / 25.4).toFixed(2)} inches</h4>
               </div>
             </div>
           : <h1>Retrieving Your Forecast</h1>
