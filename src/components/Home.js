@@ -16,6 +16,10 @@ class Home extends React.Component {
     this.state = {}
   }
 
+  setIcon(id) {
+    return `http://openweathermap.org/img/w/${id}.png`
+  }
+
   render() {
     return (
       <div>
@@ -25,86 +29,86 @@ class Home extends React.Component {
               <Card.Content>
                 <Card.Header><Link to='/losangeles'>Los Angeles</Link></Card.Header>
               </Card.Content>
-              <Image src={laThumbnail} />
+              <Link to='/losangeles'><Image src={laThumbnail} /></Link>
               <Card.Content>
-                <Card.Meta>Icon here</Card.Meta>
+                {this.props.losAngeles
+                  ? <Card.Meta>
+                      <Image src={this.setIcon(this.props.losAngeles.list[0].weather[0].icon)} />
+                      <Link to='/losangeles'>
+                        {Math.round(this.props.losAngeles.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.losAngeles.list[0].weather[0].main}
+                      </Link>
+                    </Card.Meta>
+                  : null
+                }
               </Card.Content>
-              {this.props.losAngeles
-                ? <Card.Content extra>
-                    <Link to='/losangeles'>
-                      {Math.round(this.props.losAngeles.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.losAngeles.list[0].weather[0].main}
-                    </Link>
-                  </Card.Content>
-                : null
-              }  
             </Card>
             <Card>
               <Card.Content>
                 <Card.Header><Link to='/manhattan'>Manhattan</Link></Card.Header>
               </Card.Content>
-              <Image src={manhattanThumbnail} />
+              <Link to='/manhattan'><Image src={manhattanThumbnail} /></Link>
               <Card.Content>
-                <Card.Meta>Icon here</Card.Meta>
+                {this.props.manhattan
+                  ? <Card.Meta>
+                      <Image src={this.setIcon(this.props.manhattan.list[0].weather[0].icon)} />
+                      <Link to='/manhattan'>
+                        {Math.round(this.props.manhattan.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.manhattan.list[0].weather[0].main}
+                      </Link>
+                    </Card.Meta>
+                  : null
+                }
               </Card.Content>
-              {this.props.manhattan
-                ? <Card.Content extra>
-                    <Link to='/manhattan'>
-                      {Math.round(this.props.manhattan.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.manhattan.list[0].weather[0].main}
-                    </Link>
-                  </Card.Content>
-                : null
-              }
             </Card>
             <Card>
               <Card.Content>
                 <Card.Header><Link to='/chicago'>Chicago</Link></Card.Header>
               </Card.Content>
-              <Image src={chicagoThumbnail} />
+              <Link to='/chicago'><Image src={chicagoThumbnail} /></Link>
               <Card.Content>
-                <Card.Meta>Icon here</Card.Meta>
+                {this.props.chicago
+                  ? <Card.Meta>
+                      <Image src={this.setIcon(this.props.chicago.list[0].weather[0].icon)} />
+                      <Link to='/chicago'>
+                        {Math.round(this.props.chicago.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.chicago.list[0].weather[0].main}
+                      </Link>
+                    </Card.Meta>
+                  : null
+                }
               </Card.Content>
-              {this.props.chicago
-                ? <Card.Content extra>
-                    <Link to='/chicago'>
-                      {Math.round(this.props.chicago.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.chicago.list[0].weather[0].main}
-                    </Link>
-                  </Card.Content>
-                : null
-              }
             </Card>
             <Card>
               <Card.Content>
                 <Card.Header><Link to='/miami'>Miami</Link></Card.Header>
               </Card.Content>
-              <Image src={miamiThumbnail} />
+              <Link to='/miami'><Image src={miamiThumbnail} /></Link>
               <Card.Content>
-                <Card.Meta>Icon here</Card.Meta>
+                {this.props.miami
+                  ? <Card.Meta>
+                      <Image src={this.setIcon(this.props.miami.list[0].weather[0].icon)} />
+                      <Link to='/miami'>
+                        {Math.round(this.props.miami.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.miami.list[0].weather[0].main}
+                      </Link>
+                    </Card.Meta>
+                  : null
+                }
               </Card.Content>
-              {this.props.miami
-                ? <Card.Content extra>
-                    <Link to='/miami'>
-                      {Math.round(this.props.miami.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.miami.list[0].weather[0].main}
-                    </Link>
-                  </Card.Content>
-                : null
-              }
             </Card>
             <Card>
               <Card.Content>
                 <Card.Header><Link to='/houston'>Houston</Link></Card.Header>
               </Card.Content>
-              <Image src={houstonThumbnail} />
+              <Link to='/houston'><Image src={houstonThumbnail} /></Link>
               <Card.Content>
-                <Card.Meta>Icon here</Card.Meta>
+                {this.props.houston
+                  ? <Card.Meta>
+                      <Image src={this.setIcon(this.props.houston.list[0].weather[0].icon)} />
+                      <Link to='/houston'>
+                        {Math.round(this.props.houston.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.houston.list[0].weather[0].main}
+                      </Link>
+                    </Card.Meta>
+                  : null
+                }
               </Card.Content>
-              {this.props.houston
-                ? <Card.Content extra>
-                    <Link to='/houston'>
-                      {Math.round(this.props.houston.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.houston.list[0].weather[0].main}
-                    </Link>
-                  </Card.Content>
-                : null
-              }
             </Card>
           </Card.Group>
         </Responsive>
@@ -114,86 +118,86 @@ class Home extends React.Component {
               <Card.Content>
                 <Card.Header><Link to='/losangeles'>Los Angeles</Link></Card.Header>
               </Card.Content>
-              <Image src={laThumbnail} />
+              <Link to='/losangeles'><Image src={laThumbnail} /></Link>
               <Card.Content>
-                <Card.Meta>Icon here</Card.Meta>
-              </Card.Content>
-              {this.props.losAngeles
-                ? <Card.Content extra>
-                    <Link to='/losangeles'>
-                      {Math.round(this.props.losAngeles.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.losAngeles.list[0].weather[0].main}
-                    </Link>
-                  </Card.Content>
-                : null
-              }  
+                {this.props.losAngeles
+                  ? <Card.Meta>
+                      <Image src={this.setIcon(this.props.losAngeles.list[0].weather[0].icon)} />
+                      <Link to='/losangeles'>
+                        {Math.round(this.props.losAngeles.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.losAngeles.list[0].weather[0].main}
+                      </Link>
+                    </Card.Meta>
+                  : null
+                }
+              </Card.Content>  
             </Card>
             <Card>
               <Card.Content>
                 <Card.Header><Link to='/manhattan'>Manhattan</Link></Card.Header>
               </Card.Content>
-              <Image src={manhattanThumbnail} />
+              <Link to='/manhattan'><Image src={manhattanThumbnail} /></Link>
               <Card.Content>
-                <Card.Meta>Icon here</Card.Meta>
-              </Card.Content>
-              {this.props.manhattan
-                ? <Card.Content extra>
-                    <Link to='/manhattan'>
-                      {Math.round(this.props.manhattan.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.manhattan.list[0].weather[0].main}
-                    </Link>
-                  </Card.Content>
-                : null
-              }
+                {this.props.manhattan
+                  ? <Card.Meta>
+                      <Image src={this.setIcon(this.props.manhattan.list[0].weather[0].icon)} />
+                      <Link to='/manhattan'>
+                        {Math.round(this.props.manhattan.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.manhattan.list[0].weather[0].main}
+                      </Link>
+                    </Card.Meta>
+                  : null
+                }
+              </Card.Content> 
             </Card>
             <Card>
               <Card.Content>
                 <Card.Header><Link to='/chicago'>Chicago</Link></Card.Header>
               </Card.Content>
-              <Image src={chicagoThumbnail} />
+              <Link to='/chicago'><Image src={chicagoThumbnail} /></Link>
               <Card.Content>
-                <Card.Meta>Icon here</Card.Meta>
-              </Card.Content>
-              {this.props.chicago
-                ? <Card.Content extra>
-                    <Link to='/chicago'>
-                      {Math.round(this.props.chicago.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.chicago.list[0].weather[0].main}
-                    </Link>
-                  </Card.Content>
-                : null
-              }
+                {this.props.chicago
+                  ? <Card.Meta>
+                      <Image src={this.setIcon(this.props.chicago.list[0].weather[0].icon)} />
+                      <Link to='/chicago'>
+                        {Math.round(this.props.chicago.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.chicago.list[0].weather[0].main}
+                      </Link>
+                    </Card.Meta>
+                  : null
+                }
+              </Card.Content> 
             </Card>
             <Card>
               <Card.Content>
                 <Card.Header><Link to='/miami'>Miami</Link></Card.Header>
               </Card.Content>
-              <Image src={miamiThumbnail} />
+              <Link to='/miami'><Image src={miamiThumbnail} /></Link>
               <Card.Content>
-                <Card.Meta>Icon here</Card.Meta>
-              </Card.Content>
-              {this.props.miami
-                ? <Card.Content extra>
-                    <Link to='/miami'>
-                      {Math.round(this.props.miami.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.miami.list[0].weather[0].main}
-                    </Link>
-                  </Card.Content>
-                : null
-              }
+                {this.props.miami
+                  ? <Card.Meta>
+                      <Image src={this.setIcon(this.props.miami.list[0].weather[0].icon)} />
+                      <Link to='/miami'>
+                        {Math.round(this.props.miami.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.miami.list[0].weather[0].main}
+                      </Link>
+                    </Card.Meta>
+                  : null
+                }
+              </Card.Content> 
             </Card>
             <Card>
               <Card.Content>
                 <Card.Header><Link to='/houston'>Houston</Link></Card.Header>
               </Card.Content>
-              <Image src={houstonThumbnail} />
+              <Link to='/houston'><Image src={houstonThumbnail} /></Link>
               <Card.Content>
-                <Card.Meta>Icon here</Card.Meta>
-              </Card.Content>
-              {this.props.houston
-                ? <Card.Content extra>
-                    <Link to='/houston'>
-                      {Math.round(this.props.houston.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.houston.list[0].weather[0].main}
-                    </Link>
-                  </Card.Content>
-                : null
-              }
+                {this.props.houston
+                  ? <Card.Meta>
+                      <Image src={this.setIcon(this.props.houston.list[0].weather[0].icon)} />
+                      <Link to='/houston'>
+                        {Math.round(this.props.houston.list[0].main.temp * (9/5) - 459.67) + '˚F and ' + this.props.houston.list[0].weather[0].main}
+                      </Link>
+                    </Card.Meta>
+                  : null
+                }
+              </Card.Content> 
             </Card>
           </Card.Group>
         </Responsive>

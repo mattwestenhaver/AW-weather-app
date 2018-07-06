@@ -7,6 +7,7 @@ import auth from './auth.js'
 import MenuBar from './components/MenuBar.js'
 import Home from './components/Home.js'
 import CityWeather from './components/CityWeather.js'
+import Footer from './components/Footer.js'
 
 
 const ids = [
@@ -71,6 +72,7 @@ class App extends Component {
           <Route path='/houston' render={(props) => {
             return <CityWeather city={this.state.houston} icon={this.state.houston ? this.state.houston.list[0].weather[0].icon : null} state='TX' {...props} />
           }} />
+          <Footer />
         </div>
       </Router>
     );
