@@ -25,8 +25,8 @@ class WeatherWidget extends React.Component {
   render() {
     return (
       <div className='weather-widget'>
-        <Button color='blue' onClick={this.display24Hours.bind(this)}>24 Hour Forecast</Button>
-        <Button color='teal' onClick={this.display5Day.bind(this)}>5 Day Forecast</Button>
+        <Button color='blue' onClick={this.display24Hours.bind(this)}>Next 24 Hours</Button>
+        <Button color='teal' onClick={this.display5Day.bind(this)}>Next 5 Days</Button>
         <hr />
         {this.state.nextDay
           ? <NextDay weather={this.props.weather} />
